@@ -9,11 +9,24 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+    let nonogramView = NonogramView(frame: .zero)
+    let nonogramModelView = NonogramModelView()!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let trainPath = Bundle.main.path(forResource: "train", ofType: "json") {
+            self.nonogramModelView.loadNonogram(fromFile: trainPath)
+        }
 
-        // Do any additional setup after loading the view.
+        nonogramView.frame = self.view.bounds
+        nonogramView.wantsLayer = true
+        nonogramView.layer?.backgroundColor = CGColor.black
+        nonogramView.autoresizingMask = [.width, .height]
+        nonogramView.drawCallback = { (rect: NSRect) -> () in
+            self.nonogramModelView.draw(rect)
+        }
+        self.view.addSubview(nonogramView)
     }
 
     override var representedObject: Any? {
@@ -22,6 +35,13 @@ class ViewController: NSViewController {
         }
     }
 
+    /*override func awakeFromNib() {
+        if self.view.layer != nil {
+            let color = CGColor(red: 1.0, green: 1, blue: 1, alpha: 1.0)
+            self.view.layer?.backgroundColor = color
+        }
+        
+    }*/
 
 }
 

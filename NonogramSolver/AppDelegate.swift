@@ -11,16 +11,20 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        if let window = NSApplication.shared.mainWindow{
+            window.minSize = NSSize(width: 1280, height: 800)
+            window.setContentSize(NSSize(width: 1280, height: 800))
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
 
 }
 
