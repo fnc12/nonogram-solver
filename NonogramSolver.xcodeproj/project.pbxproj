@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E9B18B1F1FFFF50200ADAD2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B18B1E1FFFF50200ADAD2D /* AppDelegate.swift */; };
+		E9B18B211FFFF50200ADAD2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B18B201FFFF50200ADAD2D /* ViewController.swift */; };
+		E9B18B231FFFF50200ADAD2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9B18B221FFFF50200ADAD2D /* Assets.xcassets */; };
+		E9B18B261FFFF50200ADAD2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B18B241FFFF50200ADAD2D /* Main.storyboard */; };
+		E9B18B321FFFF50200ADAD2D /* NonogramSolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B18B311FFFF50200ADAD2D /* NonogramSolverTests.swift */; };
+		E9B18B3D1FFFF50200ADAD2D /* NonogramSolverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B18B3C1FFFF50200ADAD2D /* NonogramSolverUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E9B18B2E1FFFF50200ADAD2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9B18B131FFFF50200ADAD2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9B18B1A1FFFF50200ADAD2D;
+			remoteInfo = NonogramSolver;
+		};
+		E9B18B391FFFF50200ADAD2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9B18B131FFFF50200ADAD2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9B18B1A1FFFF50200ADAD2D;
+			remoteInfo = NonogramSolver;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E9B18B1B1FFFF50200ADAD2D /* NonogramSolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NonogramSolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9B18B1E1FFFF50200ADAD2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E9B18B201FFFF50200ADAD2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E9B18B221FFFF50200ADAD2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E9B18B251FFFF50200ADAD2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E9B18B271FFFF50200ADAD2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9B18B281FFFF50200ADAD2D /* NonogramSolver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NonogramSolver.entitlements; sourceTree = "<group>"; };
+		E9B18B2D1FFFF50200ADAD2D /* NonogramSolverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NonogramSolverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9B18B311FFFF50200ADAD2D /* NonogramSolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonogramSolverTests.swift; sourceTree = "<group>"; };
+		E9B18B331FFFF50200ADAD2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9B18B381FFFF50200ADAD2D /* NonogramSolverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NonogramSolverUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9B18B3C1FFFF50200ADAD2D /* NonogramSolverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonogramSolverUITests.swift; sourceTree = "<group>"; };
+		E9B18B3E1FFFF50200ADAD2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E9B18B181FFFF50200ADAD2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9B18B2A1FFFF50200ADAD2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9B18B351FFFF50200ADAD2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E9B18B121FFFF50200ADAD2D = {
+			isa = PBXGroup;
+			children = (
+				E9B18B1D1FFFF50200ADAD2D /* NonogramSolver */,
+				E9B18B301FFFF50200ADAD2D /* NonogramSolverTests */,
+				E9B18B3B1FFFF50200ADAD2D /* NonogramSolverUITests */,
+				E9B18B1C1FFFF50200ADAD2D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E9B18B1C1FFFF50200ADAD2D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E9B18B1B1FFFF50200ADAD2D /* NonogramSolver.app */,
+				E9B18B2D1FFFF50200ADAD2D /* NonogramSolverTests.xctest */,
+				E9B18B381FFFF50200ADAD2D /* NonogramSolverUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E9B18B1D1FFFF50200ADAD2D /* NonogramSolver */ = {
+			isa = PBXGroup;
+			children = (
+				E9B18B1E1FFFF50200ADAD2D /* AppDelegate.swift */,
+				E9B18B201FFFF50200ADAD2D /* ViewController.swift */,
+				E9B18B221FFFF50200ADAD2D /* Assets.xcassets */,
+				E9B18B241FFFF50200ADAD2D /* Main.storyboard */,
+				E9B18B271FFFF50200ADAD2D /* Info.plist */,
+				E9B18B281FFFF50200ADAD2D /* NonogramSolver.entitlements */,
+			);
+			path = NonogramSolver;
+			sourceTree = "<group>";
+		};
+		E9B18B301FFFF50200ADAD2D /* NonogramSolverTests */ = {
+			isa = PBXGroup;
+			children = (
+				E9B18B311FFFF50200ADAD2D /* NonogramSolverTests.swift */,
+				E9B18B331FFFF50200ADAD2D /* Info.plist */,
+			);
+			path = NonogramSolverTests;
+			sourceTree = "<group>";
+		};
+		E9B18B3B1FFFF50200ADAD2D /* NonogramSolverUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E9B18B3C1FFFF50200ADAD2D /* NonogramSolverUITests.swift */,
+				E9B18B3E1FFFF50200ADAD2D /* Info.plist */,
+			);
+			path = NonogramSolverUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E9B18B1A1FFFF50200ADAD2D /* NonogramSolver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9B18B411FFFF50200ADAD2D /* Build configuration list for PBXNativeTarget "NonogramSolver" */;
+			buildPhases = (
+				E9B18B171FFFF50200ADAD2D /* Sources */,
+				E9B18B181FFFF50200ADAD2D /* Frameworks */,
+				E9B18B191FFFF50200ADAD2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NonogramSolver;
+			productName = NonogramSolver;
+			productReference = E9B18B1B1FFFF50200ADAD2D /* NonogramSolver.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E9B18B2C1FFFF50200ADAD2D /* NonogramSolverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9B18B441FFFF50200ADAD2D /* Build configuration list for PBXNativeTarget "NonogramSolverTests" */;
+			buildPhases = (
+				E9B18B291FFFF50200ADAD2D /* Sources */,
+				E9B18B2A1FFFF50200ADAD2D /* Frameworks */,
+				E9B18B2B1FFFF50200ADAD2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9B18B2F1FFFF50200ADAD2D /* PBXTargetDependency */,
+			);
+			name = NonogramSolverTests;
+			productName = NonogramSolverTests;
+			productReference = E9B18B2D1FFFF50200ADAD2D /* NonogramSolverTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E9B18B371FFFF50200ADAD2D /* NonogramSolverUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9B18B471FFFF50200ADAD2D /* Build configuration list for PBXNativeTarget "NonogramSolverUITests" */;
+			buildPhases = (
+				E9B18B341FFFF50200ADAD2D /* Sources */,
+				E9B18B351FFFF50200ADAD2D /* Frameworks */,
+				E9B18B361FFFF50200ADAD2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9B18B3A1FFFF50200ADAD2D /* PBXTargetDependency */,
+			);
+			name = NonogramSolverUITests;
+			productName = NonogramSolverUITests;
+			productReference = E9B18B381FFFF50200ADAD2D /* NonogramSolverUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E9B18B131FFFF50200ADAD2D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "John Zakharov";
+				TargetAttributes = {
+					E9B18B1A1FFFF50200ADAD2D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					E9B18B2C1FFFF50200ADAD2D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E9B18B1A1FFFF50200ADAD2D;
+					};
+					E9B18B371FFFF50200ADAD2D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E9B18B1A1FFFF50200ADAD2D;
+					};
+				};
+			};
+			buildConfigurationList = E9B18B161FFFF50200ADAD2D /* Build configuration list for PBXProject "NonogramSolver" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E9B18B121FFFF50200ADAD2D;
+			productRefGroup = E9B18B1C1FFFF50200ADAD2D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E9B18B1A1FFFF50200ADAD2D /* NonogramSolver */,
+				E9B18B2C1FFFF50200ADAD2D /* NonogramSolverTests */,
+				E9B18B371FFFF50200ADAD2D /* NonogramSolverUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E9B18B191FFFF50200ADAD2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9B18B231FFFF50200ADAD2D /* Assets.xcassets in Resources */,
+				E9B18B261FFFF50200ADAD2D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9B18B2B1FFFF50200ADAD2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9B18B361FFFF50200ADAD2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E9B18B171FFFF50200ADAD2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9B18B211FFFF50200ADAD2D /* ViewController.swift in Sources */,
+				E9B18B1F1FFFF50200ADAD2D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9B18B291FFFF50200ADAD2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9B18B321FFFF50200ADAD2D /* NonogramSolverTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9B18B341FFFF50200ADAD2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9B18B3D1FFFF50200ADAD2D /* NonogramSolverUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E9B18B2F1FFFF50200ADAD2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9B18B1A1FFFF50200ADAD2D /* NonogramSolver */;
+			targetProxy = E9B18B2E1FFFF50200ADAD2D /* PBXContainerItemProxy */;
+		};
+		E9B18B3A1FFFF50200ADAD2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9B18B1A1FFFF50200ADAD2D /* NonogramSolver */;
+			targetProxy = E9B18B391FFFF50200ADAD2D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E9B18B241FFFF50200ADAD2D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9B18B251FFFF50200ADAD2D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E9B18B3F1FFFF50200ADAD2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E9B18B401FFFF50200ADAD2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		E9B18B421FFFF50200ADAD2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NonogramSolver/NonogramSolver.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QDTPG5DB79;
+				INFOPLIST_FILE = NonogramSolver/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kz.outlawstudio.NonogramSolver;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		E9B18B431FFFF50200ADAD2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NonogramSolver/NonogramSolver.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QDTPG5DB79;
+				INFOPLIST_FILE = NonogramSolver/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kz.outlawstudio.NonogramSolver;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		E9B18B451FFFF50200ADAD2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QDTPG5DB79;
+				INFOPLIST_FILE = NonogramSolverTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kz.outlawstudio.NonogramSolverTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NonogramSolver.app/Contents/MacOS/NonogramSolver";
+			};
+			name = Debug;
+		};
+		E9B18B461FFFF50200ADAD2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QDTPG5DB79;
+				INFOPLIST_FILE = NonogramSolverTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kz.outlawstudio.NonogramSolverTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NonogramSolver.app/Contents/MacOS/NonogramSolver";
+			};
+			name = Release;
+		};
+		E9B18B481FFFF50200ADAD2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QDTPG5DB79;
+				INFOPLIST_FILE = NonogramSolverUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kz.outlawstudio.NonogramSolverUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = NonogramSolver;
+			};
+			name = Debug;
+		};
+		E9B18B491FFFF50200ADAD2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QDTPG5DB79;
+				INFOPLIST_FILE = NonogramSolverUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kz.outlawstudio.NonogramSolverUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = NonogramSolver;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E9B18B161FFFF50200ADAD2D /* Build configuration list for PBXProject "NonogramSolver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9B18B3F1FFFF50200ADAD2D /* Debug */,
+				E9B18B401FFFF50200ADAD2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9B18B411FFFF50200ADAD2D /* Build configuration list for PBXNativeTarget "NonogramSolver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9B18B421FFFF50200ADAD2D /* Debug */,
+				E9B18B431FFFF50200ADAD2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9B18B441FFFF50200ADAD2D /* Build configuration list for PBXNativeTarget "NonogramSolverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9B18B451FFFF50200ADAD2D /* Debug */,
+				E9B18B461FFFF50200ADAD2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9B18B471FFFF50200ADAD2D /* Build configuration list for PBXNativeTarget "NonogramSolverUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9B18B481FFFF50200ADAD2D /* Debug */,
+				E9B18B491FFFF50200ADAD2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E9B18B131FFFF50200ADAD2D /* Project object */;
+}
