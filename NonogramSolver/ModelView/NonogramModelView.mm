@@ -7,12 +7,18 @@
 //
 
 #import "NonogramModelView.h"
-#include "Nonogram.hpp"
 
 #import <Quartz/Quartz.h>
+
+#include "Nonogram.hpp"
+#include "Services/NonogramSolver.hpp"
+
 #include <algorithm>
+#include <memory>
+#include <thread>
 
 using namespace DataModel;
+using namespace Services;
 
 static struct {
     int width = 10;
@@ -23,6 +29,7 @@ static const NSSize cellSize{30, 30};
 
 @interface NonogramModelView () {
     Nonogram nonogram;
+    std::unique_ptr<std::thread> solveThread;
 }
 
 @end
@@ -186,6 +193,8 @@ static const NSSize cellSize{30, 30};
     }
 }
 
+#pragma mark - Public
+
 - (void)loadNonogramFromFile:(NSString*)filepath {
     if(auto data = [NSData dataWithContentsOfFile:filepath]) {
         if(auto jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]) {
@@ -201,6 +210,21 @@ static const NSSize cellSize{30, 30};
     }else{
         NSLog(@"%s data is nil", sel_getName(_cmd));
     }
+}
+
+- (void)startSolvingNonogram {
+    if(!solveThread) {
+        solveThread = std::make_unique<std::thread>([self]{
+            NonogramSolver nonogramSolver(nonogram);
+            nonogramSolver.start();
+        });
+    }
+}
+
+#pragma mark - Properties
+
+- (BOOL)isSolvingNonogram {
+    return bool(solveThread);
 }
 
 @end

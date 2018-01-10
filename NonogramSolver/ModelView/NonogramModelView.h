@@ -11,11 +11,13 @@
 @interface NonogramModelView : NSObject
 
 @property NSFont *font;
+@property (readonly) BOOL isSolvingNonogram;
 
 - (instancetype)init;
 
 - (void)draw:(CGRect)rect;
 
 - (void)loadNonogramFromFile:(NSString*)filepath;
+- (void)startSolvingNonogram;
 
 @end

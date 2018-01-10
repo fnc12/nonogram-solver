@@ -11,9 +11,13 @@ import Cocoa
 class ViewController: NSViewController {
     let nonogramView = NonogramView(frame: .zero)
     let nonogramModelView = NonogramModelView()!
+    let solveBtn = NSButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var s = CGSize()
+        var o = CGPoint()
+        let b = self.view.frame.size
         
         if let trainPath = Bundle.main.path(forResource: "train", ofType: "json") {
             self.nonogramModelView.loadNonogram(fromFile: trainPath)
@@ -27,6 +31,16 @@ class ViewController: NSViewController {
             self.nonogramModelView.draw(rect)
         }
         self.view.addSubview(nonogramView)
+        
+        solveBtn.title = "Solve"
+        solveBtn.target = self
+        solveBtn.action = #selector(solveBtnTouched(sender:))
+        solveBtn.bezelStyle = .rounded
+        s = CGSize(width: 100, height: 30)
+        o = CGPoint(x: 10, y: b.height - s.height - 10)
+        solveBtn.frame = CGRect(origin: o, size: s)
+        solveBtn.autoresizingMask = [.maxXMargin, .minYMargin]
+        self.view.addSubview(solveBtn)
     }
 
     override var representedObject: Any? {
@@ -35,13 +49,15 @@ class ViewController: NSViewController {
         }
     }
 
-    /*override func awakeFromNib() {
-        if self.view.layer != nil {
-            let color = CGColor(red: 1.0, green: 1, blue: 1, alpha: 1.0)
-            self.view.layer?.backgroundColor = color
+    //  MARK: - Events
+    
+    @objc func solveBtnTouched(sender: AnyObject) {
+//        print(#function)
+        if !self.nonogramModelView.isSolvingNonogram {
+            self.solveBtn.isEnabled = false
+            self.nonogramModelView.startSolvingNonogram()
         }
-        
-    }*/
+    }
 
 }
 

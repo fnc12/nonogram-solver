@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9017537200172FA00AFF1BA /* NonogramSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9017535200172FA00AFF1BA /* NonogramSolver.cpp */; };
 		E9B18B1F1FFFF50200ADAD2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B18B1E1FFFF50200ADAD2D /* AppDelegate.swift */; };
 		E9B18B211FFFF50200ADAD2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B18B201FFFF50200ADAD2D /* ViewController.swift */; };
 		E9B18B231FFFF50200ADAD2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9B18B221FFFF50200ADAD2D /* Assets.xcassets */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E9017535200172FA00AFF1BA /* NonogramSolver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NonogramSolver.cpp; sourceTree = "<group>"; };
+		E9017536200172FA00AFF1BA /* NonogramSolver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NonogramSolver.hpp; sourceTree = "<group>"; };
 		E9B18B1B1FFFF50200ADAD2D /* NonogramSolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NonogramSolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B18B1E1FFFF50200ADAD2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9B18B201FFFF50200ADAD2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E9017534200172EC00AFF1BA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E9017535200172FA00AFF1BA /* NonogramSolver.cpp */,
+				E9017536200172FA00AFF1BA /* NonogramSolver.hpp */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		E9B18B121FFFF50200ADAD2D = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +122,7 @@
 			children = (
 				E9B18B1E1FFFF50200ADAD2D /* AppDelegate.swift */,
 				E9B18B201FFFF50200ADAD2D /* ViewController.swift */,
+				E9017534200172EC00AFF1BA /* Services */,
 				E9B18B5820000A6900ADAD2D /* libs */,
 				E9B18B521FFFFB4F00ADAD2D /* ModelView */,
 				E9B18B4F1FFFF8CD00ADAD2D /* Views */,
@@ -324,6 +337,7 @@
 				E9B18B511FFFFA1600ADAD2D /* NonogramView.swift in Sources */,
 				E9B18B211FFFF50200ADAD2D /* ViewController.swift in Sources */,
 				E9B18B1F1FFFF50200ADAD2D /* AppDelegate.swift in Sources */,
+				E9017537200172FA00AFF1BA /* NonogramSolver.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +507,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "NonogramSolver/DataModel/NonogramSolver-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/NonogramSolver";
 			};
 			name = Debug;
 		};
@@ -512,6 +527,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NonogramSolver/DataModel/NonogramSolver-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/NonogramSolver";
 			};
 			name = Release;
 		};
