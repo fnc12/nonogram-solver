@@ -12,6 +12,7 @@
 #include "DataModel/Nonogram.hpp"
 
 #include <vector>
+#include <string>
 
 namespace Services {
     
@@ -19,19 +20,28 @@ namespace Services {
     
     struct NonogramSolver {
         
+        /*enum class CellValue {
+            Filled,
+            Empty,
+            Undefined,
+        };*/
+        
         NonogramSolver(const Nonogram &nonogram);
         
         void start();
         
+        std::vector<std::string> evaluateOptions(std::string::iterator from,
+                                                 std::string::iterator to,
+                                                 std::vector<int> numbers) const;
+        
+        std::string evaluateClean(const std::vector<std::string> &options) const;
+        
+        std::vector<int> countNumbers(const std::string &line) const;
+        
     protected:
-        enum class CellValue {
-            Filled,
-            Empty,
-            Undefined,
-        };
         
         const Nonogram &nonogram;
-        std::vector<CellValue> field;
+        std::string field;
     };
 }
 

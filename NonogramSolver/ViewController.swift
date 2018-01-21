@@ -13,13 +13,16 @@ class ViewController: NSViewController {
     let nonogramModelView = NonogramModelView()!
     let solveBtn = NSButton()
     
+//    let defaultNonogramName = "train"
+    let defaultNonogramName = "horse"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var s = CGSize()
         var o = CGPoint()
         let b = self.view.frame.size
         
-        if let trainPath = Bundle.main.path(forResource: "train", ofType: "json") {
+        if let trainPath = Bundle.main.path(forResource: self.defaultNonogramName, ofType: "json") {
             self.nonogramModelView.loadNonogram(fromFile: trainPath)
         }
 

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E9017537200172FA00AFF1BA /* NonogramSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9017535200172FA00AFF1BA /* NonogramSolver.cpp */; };
+		E977AED920068E310026AA43 /* horse.json in Resources */ = {isa = PBXBuildFile; fileRef = E977AED820068E310026AA43 /* horse.json */; };
+		E977AEE1200690220026AA43 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E977AEE0200690220026AA43 /* main.cpp */; };
+		E977AEE52006902B0026AA43 /* NonogramSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9017535200172FA00AFF1BA /* NonogramSolver.cpp */; };
+		E977AEE6200690300026AA43 /* Nonogram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9B18B4C1FFFF84400ADAD2D /* Nonogram.cpp */; };
 		E9B18B1F1FFFF50200ADAD2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B18B1E1FFFF50200ADAD2D /* AppDelegate.swift */; };
 		E9B18B211FFFF50200ADAD2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B18B201FFFF50200ADAD2D /* ViewController.swift */; };
 		E9B18B231FFFF50200ADAD2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9B18B221FFFF50200ADAD2D /* Assets.xcassets */; };
@@ -37,9 +41,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E977AEDC200690220026AA43 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E9017535200172FA00AFF1BA /* NonogramSolver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NonogramSolver.cpp; sourceTree = "<group>"; };
 		E9017536200172FA00AFF1BA /* NonogramSolver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NonogramSolver.hpp; sourceTree = "<group>"; };
+		E977AED820068E310026AA43 /* horse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = horse.json; sourceTree = "<group>"; };
+		E977AEDE200690220026AA43 /* SolverTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SolverTests; sourceTree = BUILT_PRODUCTS_DIR; };
+		E977AEE0200690220026AA43 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E9B18B1B1FFFF50200ADAD2D /* NonogramSolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NonogramSolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B18B1E1FFFF50200ADAD2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9B18B201FFFF50200ADAD2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +83,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E977AEDB200690220026AA43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E9B18B181FFFF50200ADAD2D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -97,12 +123,21 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		E977AEDF200690220026AA43 /* SolverTests */ = {
+			isa = PBXGroup;
+			children = (
+				E977AEE0200690220026AA43 /* main.cpp */,
+			);
+			path = SolverTests;
+			sourceTree = "<group>";
+		};
 		E9B18B121FFFF50200ADAD2D = {
 			isa = PBXGroup;
 			children = (
 				E9B18B1D1FFFF50200ADAD2D /* NonogramSolver */,
 				E9B18B301FFFF50200ADAD2D /* NonogramSolverTests */,
 				E9B18B3B1FFFF50200ADAD2D /* NonogramSolverUITests */,
+				E977AEDF200690220026AA43 /* SolverTests */,
 				E9B18B1C1FFFF50200ADAD2D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -113,6 +148,7 @@
 				E9B18B1B1FFFF50200ADAD2D /* NonogramSolver.app */,
 				E9B18B2D1FFFF50200ADAD2D /* NonogramSolverTests.xctest */,
 				E9B18B381FFFF50200ADAD2D /* NonogramSolverUITests.xctest */,
+				E977AEDE200690220026AA43 /* SolverTests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +165,7 @@
 				E9B18B4A1FFFF83100ADAD2D /* DataModel */,
 				E9B18B221FFFF50200ADAD2D /* Assets.xcassets */,
 				E9B18B562000096800ADAD2D /* train.json */,
+				E977AED820068E310026AA43 /* horse.json */,
 				E9B18B241FFFF50200ADAD2D /* Main.storyboard */,
 				E9B18B271FFFF50200ADAD2D /* Info.plist */,
 				E9B18B281FFFF50200ADAD2D /* NonogramSolver.entitlements */,
@@ -200,6 +237,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E977AEDD200690220026AA43 /* SolverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E977AEE2200690220026AA43 /* Build configuration list for PBXNativeTarget "SolverTests" */;
+			buildPhases = (
+				E977AEDA200690220026AA43 /* Sources */,
+				E977AEDB200690220026AA43 /* Frameworks */,
+				E977AEDC200690220026AA43 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SolverTests;
+			productName = SolverTests;
+			productReference = E977AEDE200690220026AA43 /* SolverTests */;
+			productType = "com.apple.product-type.tool";
+		};
 		E9B18B1A1FFFF50200ADAD2D /* NonogramSolver */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9B18B411FFFF50200ADAD2D /* Build configuration list for PBXNativeTarget "NonogramSolver" */;
@@ -263,6 +317,10 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "John Zakharov";
 				TargetAttributes = {
+					E977AEDD200690220026AA43 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					E9B18B1A1FFFF50200ADAD2D = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
@@ -296,6 +354,7 @@
 				E9B18B1A1FFFF50200ADAD2D /* NonogramSolver */,
 				E9B18B2C1FFFF50200ADAD2D /* NonogramSolverTests */,
 				E9B18B371FFFF50200ADAD2D /* NonogramSolverUITests */,
+				E977AEDD200690220026AA43 /* SolverTests */,
 			);
 		};
 /* End PBXProject section */
@@ -308,6 +367,7 @@
 				E9B18B231FFFF50200ADAD2D /* Assets.xcassets in Resources */,
 				E9B18B261FFFF50200ADAD2D /* Main.storyboard in Resources */,
 				E9B18B572000096900ADAD2D /* train.json in Resources */,
+				E977AED920068E310026AA43 /* horse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +388,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E977AEDA200690220026AA43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E977AEE1200690220026AA43 /* main.cpp in Sources */,
+				E977AEE52006902B0026AA43 /* NonogramSolver.cpp in Sources */,
+				E977AEE6200690300026AA43 /* Nonogram.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E9B18B171FFFF50200ADAD2D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -384,6 +454,28 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E977AEE3200690220026AA43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QDTPG5DB79;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/NonogramSolver/libs";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/NonogramSolver";
+			};
+			name = Debug;
+		};
+		E977AEE4200690220026AA43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QDTPG5DB79;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/NonogramSolver/libs";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/NonogramSolver";
+			};
+			name = Release;
+		};
 		E9B18B3F1FFFF50200ADAD2D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -600,6 +692,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E977AEE2200690220026AA43 /* Build configuration list for PBXNativeTarget "SolverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E977AEE3200690220026AA43 /* Debug */,
+				E977AEE4200690220026AA43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E9B18B161FFFF50200ADAD2D /* Build configuration list for PBXProject "NonogramSolver" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

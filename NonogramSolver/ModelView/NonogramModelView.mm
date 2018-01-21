@@ -89,8 +89,8 @@ static const NSSize cellSize{30, 30};
         (cellSize.height + 0) * CGFloat(nonogramHeight),
     };
     NSSize fieldSize{
-        cellSize.width * CGFloat(nonogramWidth + verticalNumbersMax),
-        cellSize.height * CGFloat(nonogramHeight + horizontalNumbersMax),
+        cellSize.width * CGFloat(nonogramWidth + horizontalNumbersMax),
+        cellSize.height * CGFloat(nonogramHeight + verticalNumbersMax),
     };
     
     //  fill field with white color
