@@ -8,13 +8,16 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NonogramModelViewDelegate {
     let nonogramView = NonogramView(frame: .zero)
     let nonogramModelView = NonogramModelView()!
     let solveBtn = NSButton()
     
 //    let defaultNonogramName = "train"
-    let defaultNonogramName = "horse"
+//    let defaultNonogramName = "horse"
+//    let defaultNonogramName = "camel"
+//    let defaultNonogramName = "moon"
+    let defaultNonogramName = "rabbit"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,7 @@ class ViewController: NSViewController {
         if let trainPath = Bundle.main.path(forResource: self.defaultNonogramName, ofType: "json") {
             self.nonogramModelView.loadNonogram(fromFile: trainPath)
         }
+        nonogramModelView.delegate = self
 
         nonogramView.frame = self.view.bounds
         nonogramView.wantsLayer = true
@@ -46,20 +50,24 @@ class ViewController: NSViewController {
         self.view.addSubview(solveBtn)
     }
 
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
     //  MARK: - Events
     
     @objc func solveBtnTouched(sender: AnyObject) {
-//        print(#function)
         if !self.nonogramModelView.isSolvingNonogram {
             self.solveBtn.isEnabled = false
             self.nonogramModelView.startSolvingNonogram()
         }
+    }
+    
+    //  MARK: - NonogramModelViewDelegate
+    
+    func nonogramModelViewDidUpdateNonogramSolution(_ sender: NonogramModelView!) {
+        self.nonogramView.needsDisplay = true
+    }
+    
+    func nonogramModelViewDidFinishNonogramSolving(_ sender: NonogramModelView!) {
+        print("Done!")
+        self.solveBtn.isEnabled = true
     }
 
 }

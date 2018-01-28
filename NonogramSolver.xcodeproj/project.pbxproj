@@ -23,6 +23,8 @@
 		E9B18B551FFFFB6200ADAD2D /* NonogramModelView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9B18B541FFFFB6200ADAD2D /* NonogramModelView.mm */; };
 		E9B18B572000096900ADAD2D /* train.json in Resources */ = {isa = PBXBuildFile; fileRef = E9B18B562000096800ADAD2D /* train.json */; };
 		E9B38DEA201E459000E3A6B8 /* camel.json in Resources */ = {isa = PBXBuildFile; fileRef = E9B38DE9201E459000E3A6B8 /* camel.json */; };
+		E9B38DEC201E5C1200E3A6B8 /* moon.json in Resources */ = {isa = PBXBuildFile; fileRef = E9B38DEB201E5C1200E3A6B8 /* moon.json */; };
+		E9B38DEE201E5E0B00E3A6B8 /* rabbit.json in Resources */ = {isa = PBXBuildFile; fileRef = E9B38DED201E5E0B00E3A6B8 /* rabbit.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		E9B18B562000096800ADAD2D /* train.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = train.json; sourceTree = "<group>"; };
 		E9B18B5C20000ADA00ADAD2D /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		E9B38DE9201E459000E3A6B8 /* camel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = camel.json; sourceTree = "<group>"; };
+		E9B38DEB201E5C1200E3A6B8 /* moon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = moon.json; sourceTree = "<group>"; };
+		E9B38DED201E5E0B00E3A6B8 /* rabbit.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rabbit.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,8 @@
 				E9B18B562000096800ADAD2D /* train.json */,
 				E977AED820068E310026AA43 /* horse.json */,
 				E9B38DE9201E459000E3A6B8 /* camel.json */,
+				E9B38DEB201E5C1200E3A6B8 /* moon.json */,
+				E9B38DED201E5E0B00E3A6B8 /* rabbit.json */,
 				E9B18B241FFFF50200ADAD2D /* Main.storyboard */,
 				E9B18B271FFFF50200ADAD2D /* Info.plist */,
 				E9B18B281FFFF50200ADAD2D /* NonogramSolver.entitlements */,
@@ -368,9 +374,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9B18B231FFFF50200ADAD2D /* Assets.xcassets in Resources */,
+				E9B38DEE201E5E0B00E3A6B8 /* rabbit.json in Resources */,
 				E9B18B261FFFF50200ADAD2D /* Main.storyboard in Resources */,
 				E9B18B572000096900ADAD2D /* train.json in Resources */,
 				E977AED920068E310026AA43 /* horse.json in Resources */,
+				E9B38DEC201E5C1200E3A6B8 /* moon.json in Resources */,
 				E9B38DEA201E459000E3A6B8 /* camel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

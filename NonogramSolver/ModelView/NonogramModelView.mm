@@ -25,11 +25,12 @@ static struct {
     int height = 10;
 } start;
 
-static const NSSize cellSize{30, 30};
+static const NSSize cellSize{25, 25};
 
 @interface NonogramModelView () {
     Nonogram nonogram;
     std::unique_ptr<std::thread> solveThread;
+    std::string fieldToRender;
 }
 
 @end
@@ -191,6 +192,42 @@ static const NSSize cellSize{30, 30};
             [text drawInRect:{o, s} withAttributes:attributes];
         }
     }
+    
+    //  draw cells
+    if(fieldToRender.size()){
+        assert(fieldToRender.size() == nonogramWidth * nonogramHeight);
+        auto cellIt = fieldToRender.begin();
+        for(auto x = 0; x < nonogramWidth; ++x) {
+            for(auto y = 0; y < nonogramHeight; ++y) {
+                s = cellSize;
+                o = {
+                    cellSize.width * CGFloat(horizontalNumbersMax) + fieldRect.origin.x + s.width * CGFloat(x),
+                    fieldRect.origin.y + (nonogramHeight - 1) * cellSize.height - s.height * CGFloat(y),
+                };
+                switch(*cellIt){
+                    case '1':
+                        [[NSColor blackColor] setFill];
+                        CGContextFillRect(ctx, {o, s});
+                        break;
+                    case '2':
+                        [[NSColor blackColor] setStroke];
+                        CGContextSetLineWidth(ctx, 1);
+                        CGContextMoveToPoint(ctx, o.x, o.y);
+                        o.x += cellSize.width;
+                        o.y += cellSize.height;
+                        CGContextAddLineToPoint(ctx, o.x, o.y);
+                        o.x -= cellSize.width;
+                        CGContextMoveToPoint(ctx, o.x, o.y);
+                        o.x += cellSize.width;
+                        o.y -= cellSize.height;
+                        CGContextAddLineToPoint(ctx, o.x, o.y);
+                        CGContextStrokePath(ctx);
+                        break;
+                }
+                ++cellIt;
+            }
+        }
+    }
 }
 
 #pragma mark - Public
@@ -216,7 +253,18 @@ static const NSSize cellSize{30, 30};
     if(!solveThread) {
         solveThread = std::make_unique<std::thread>([self]{
             NonogramSolver nonogramSolver(nonogram);
-            nonogramSolver.start();
+            nonogramSolver.start([self](std::string field){
+                fieldToRender = std::move(field);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate nonogramModelViewDidUpdateNonogramSolution:self];
+                });
+            }, [self]{
+                solveThread->detach();
+                solveThread = {};
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate nonogramModelViewDidFinishNonogramSolving:self];
+                });
+            });
         });
     }
 }

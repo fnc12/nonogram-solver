@@ -18,6 +18,9 @@ namespace DataModel {
     struct Nonogram {
         std::vector<std::vector<int>> vertical; //  columns
         std::vector<std::vector<int>> horizontal;   //  rows
+        
+        int verticalNumbersCount() const;
+        int horizontalNumbersCount() const;
     };
     
     using nlohmann::json;

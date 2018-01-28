@@ -12,11 +12,11 @@
 #include <iosfwd>
 #include <ostream>
 #include <set>
+#include <thread>
+#include <chrono>
 
 using std::cout;
 using std::endl;
-
-//using CellValue = Services::NonogramSolver::CellValue;
 
 std::ostream& operator<<(std::ostream &os, const decltype(DataModel::Nonogram::vertical)::value_type &line) {
     for(size_t i = 0; i < line.size(); ++i) {
@@ -36,13 +36,114 @@ Services::NonogramSolver::NonogramSolver(const Nonogram &nonogram_):nonogram(non
               '0');
 }
 
-void Services::NonogramSolver::start() {
+void Services::NonogramSolver::start(std::function<void(std::string)> progressCallback, std::function<void()> doneCallback) {
+    struct UndefinedDetector {
+        bool operator()(char c){
+            return c == '0';
+        }
+    };
+    assert(nonogram.verticalNumbersCount() == nonogram.horizontalNumbersCount());
     auto nonogramWidth = nonogram.vertical.size();
     auto nonogramHeight = nonogram.horizontal.size();
-    for(size_t x = 0; x < nonogram.vertical.size(); ++x) {
-        auto &line = nonogram.vertical[x];
-        cout << "line = " << line << endl;
+    field.clear();
+    auto fieldSize = nonogramWidth * nonogramHeight;
+    field.reserve(fieldSize);
+    for(size_t i = 0; i < fieldSize; ++i) {
+        field.push_back('0');
     }
+    auto weAreStuck = false;
+    auto undefinedCells = std::count_if(field.begin(),
+                                        field.end(),
+                                        UndefinedDetector());
+    while(undefinedCells > 0 and !weAreStuck) {
+        for(size_t x = 0; x < nonogramWidth; ++x) {
+            auto &numbers = nonogram.vertical[x];
+            auto line = verticalLineAt(x);
+            auto undefinedCellsBefore = std::count_if(line.begin(),
+                                                      line.end(),
+                                                      UndefinedDetector());
+            auto options = evaluateOptions(line.begin(),
+                                           line.end(),
+                                           numbers);
+            auto clean = evaluateClean(options);
+            auto undefinedCellsAfter = std::count_if(clean.begin(),
+                                                     clean.end(),
+                                                     UndefinedDetector());
+            if(undefinedCellsAfter < undefinedCellsBefore) {
+                setVerticalLineAt(x, clean);
+            }else{
+//                cout << "we are stuck" << endl;
+            }
+        }
+        for(size_t y = 0; y < nonogramHeight; ++y) {
+            auto &numbers = nonogram.horizontal[y];
+            auto line = horizontalLineAt(y);
+            auto undefinedCellsBefore = std::count_if(line.begin(),
+                                                      line.end(),
+                                                      UndefinedDetector());
+            auto options = evaluateOptions(line.begin(),
+                                           line.end(),
+                                           numbers);
+            auto clean = evaluateClean(options);
+            auto undefinedCellsAfter = std::count_if(clean.begin(),
+                                                     clean.end(),
+                                                     UndefinedDetector());
+            if(undefinedCellsAfter < undefinedCellsBefore) {
+                setHorizontalLineAt(y, clean);
+            }else{
+//                cout << "we are stuck" << endl;
+            }
+        }
+        progressCallback(field);
+        auto newUndefinedCells = std::count_if(field.begin(),
+                                               field.end(),
+                                               UndefinedDetector());
+        if(newUndefinedCells == undefinedCells) {
+            cout << "we are stuck, unable to solve" << endl;
+            break;
+        }
+        undefinedCells = newUndefinedCells;
+//        using namespace std::chrono_literals;
+//        std::this_thread::sleep_for(1s);
+    }
+    doneCallback();
+}
+
+void Services::NonogramSolver::setVerticalLineAt(size_t index, const std::string &line) {
+    assert(std::find(field.begin(), field.end(), '\0') == field.end());
+    auto nonogramHeight = nonogram.horizontal.size();
+    std::copy(line.begin(),
+              line.end(),
+              field.begin() + index * nonogramHeight);
+    assert(std::find(field.begin(), field.end(), '\0') == field.end());
+}
+
+void Services::NonogramSolver::setHorizontalLineAt(size_t index, const std::string &line) {
+    assert(std::find(line.begin(), line.end(), '\0') == line.end());
+    assert(std::find(field.begin(), field.end(), '\0') == field.end());
+    auto nonogramWidth = nonogram.vertical.size();
+    auto nonogramHeight = nonogram.horizontal.size();
+    assert(line.length() == nonogramWidth);
+    for(size_t i = 0; i < nonogramWidth; ++i) {
+        field[i * nonogramHeight + index] = line[i];
+    }
+    assert(std::find(field.begin(), field.end(), '\0') == field.end());
+}
+
+std::string Services::NonogramSolver::verticalLineAt(size_t index) const {
+    auto nonogramHeight = nonogram.horizontal.size();
+    return field.substr(index * nonogramHeight, nonogramHeight);
+}
+
+std::string Services::NonogramSolver::horizontalLineAt(size_t index) const {
+    auto nonogramWidth = nonogram.vertical.size();
+    auto nonogramHeight = nonogram.horizontal.size();
+    std::string res;
+    res.reserve(nonogramWidth);
+    for(size_t i = 0; i < nonogramWidth; ++i) {
+        res.push_back(field[nonogramHeight * i + index]);
+    }
+    return res;
 }
 
 std::vector<std::string> Services::NonogramSolver::evaluateOptions(std::string::iterator from,
@@ -65,7 +166,6 @@ std::vector<std::string> Services::NonogramSolver::evaluateOptions(std::string::
                     }
                     if(groupCanFit){
                         for(auto j = 0; j < groupLength; ++j) {
-//                            if((*(startIt + j) != '0') and (*(startIt + j) != '1')) {
                             if(*(startIt + j) == '2'){
                                 groupCanFit = false;
                             }
@@ -170,59 +270,9 @@ std::vector<std::string> Services::NonogramSolver::evaluateOptions(std::string::
                     assert(0);
                     break;
             }
-//            newResLine.push_back('2');
         }
         res.push_back(std::move(newResLine));
     }
-    /*auto groupLength = numbers.front();
-    auto x = 0;
-    while(x + groupLength <= line.size()){
-        std::string newResLine;
-        newResLine.reserve(line.size());
-        auto groupCanBePlacedAtX = true;
-        for(auto i = 0; i < x; ++i) {
-            newResLine.push_back('0');
-        }
-        auto cellBeforeGroupIsEmpty = true;
-        auto beforeStartX = x - 1;
-        if(beforeStartX >= 0) {
-            cellBeforeGroupIsEmpty = line[beforeStartX] != '1';
-        }
-        if(cellBeforeGroupIsEmpty){
-            for(auto i = 0; i < groupLength; ++i) {
-                auto targetIndex = x + i;
-                newResLine.push_back('1');
-                groupCanBePlacedAtX = line[targetIndex] != '2';
-                if(!groupCanBePlacedAtX){
-                    break;
-                }
-            }
-            auto cellAfterGroupIsEmpty = true;
-            auto afterGroupX = x + groupLength;
-            if(afterGroupX < line.size()) {
-                cellAfterGroupIsEmpty = line[afterGroupX] != '1';
-            }
-            if(cellAfterGroupIsEmpty) {
-                if(groupCanBePlacedAtX){
-                    while(newResLine.size() < line.size()) {
-                        auto lineValue = line[newResLine.size()];
-                        if(lineValue == '1'){
-                            newResLine.push_back(lineValue);
-                        }else{
-                            newResLine.push_back('2');
-                        }
-                    }
-                    auto realNumbers = countNumbers(newResLine);
-                    if(realNumbers == numbers){
-                        res.push_back(std::move(newResLine));
-                    }else{
-                        
-                    }
-                }
-            }
-        }
-        ++x;
-    }*/
     return res;
 }
 
@@ -242,11 +292,6 @@ std::string Services::NonogramSolver::evaluateClean(const std::vector<std::strin
             res.push_back(cellValue);
         }
     }
-    /*for(auto i = 0; i < res.size(); ++i) {
-        if(res[i] == CellValue::Undefined) {
-            res[i] = CellValue::Empty;
-        }
-    }*/
     return res;
 }
 

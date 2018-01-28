@@ -13,6 +13,7 @@
 
 #include <vector>
 #include <string>
+#include <functional>
 
 namespace Services {
     
@@ -20,15 +21,9 @@ namespace Services {
     
     struct NonogramSolver {
         
-        /*enum class CellValue {
-            Filled,
-            Empty,
-            Undefined,
-        };*/
-        
         NonogramSolver(const Nonogram &nonogram);
         
-        void start();
+        void start(std::function<void(std::string)> progressCallback, std::function<void()> doneCallback);
         
         std::vector<std::string> evaluateOptions(std::string::iterator from,
                                                  std::string::iterator to,
@@ -37,6 +32,14 @@ namespace Services {
         std::string evaluateClean(const std::vector<std::string> &options) const;
         
         std::vector<int> countNumbers(const std::string &line) const;
+        
+        std::string verticalLineAt(size_t index) const;
+        
+        std::string horizontalLineAt(size_t index) const;
+        
+        void setVerticalLineAt(size_t index, const std::string &line);
+        
+        void setHorizontalLineAt(size_t index, const std::string &line);
         
     protected:
         
