@@ -59,51 +59,88 @@ std::vector<std::string> Services::NonogramSolver::evaluateOptions(std::string::
                 for(auto i = 0; i < availableCombinationsCount; ++i) {
                     auto startIt = from + i;
                     auto groupCanFit = true;
-                    for(auto j = 0; j < groupLength; ++j) {
-                        if(*(startIt + j) != '0') {
-                            groupCanFit = false;
-                        }
-                    }
-                    auto afterGroupIt = startIt + groupLength;
-                    if(afterGroupIt < to) {
-                        if(*afterGroupIt == '1'){
-                            groupCanFit = false;
-                        }
+                    if(from < startIt) {
+                        auto cellBeforeStartIt = startIt - 1;
+                        groupCanFit = *cellBeforeStartIt != '1';
                     }
                     if(groupCanFit){
-                        std::string newResLine;
-                        newResLine.reserve(lineLength);
-                        for(auto j = 0; j < i; ++j) {
-                            newResLine.push_back('2');
-                        }
                         for(auto j = 0; j < groupLength; ++j) {
-                            newResLine.push_back('1');
-                        }
-                        if(afterGroupIt < to){
-                            newResLine.push_back('2');
-                            decltype(numbers) numbersTail;
-                            numbersTail.reserve(numbers.size() - 1);
-                            std::copy(numbers.begin() + 1,
-                                      numbers.end(),
-                                      std::back_inserter(numbersTail));
-                            auto subFrom = afterGroupIt + 1;
-                            auto subLineLength = to - subFrom;
-                            if(subLineLength == 0 and !numbersTail.empty()){
-                                return res;
+//                            if((*(startIt + j) != '0') and (*(startIt + j) != '1')) {
+                            if(*(startIt + j) == '2'){
+                                groupCanFit = false;
                             }
-                            auto subOptions = this->evaluateOptions(subFrom, to, numbersTail);
-                            if(subOptions.size()){
-                                for(auto &subOption : subOptions) {
-                                    auto resLine = newResLine + subOption;
-                                    res.push_back(std::move(resLine));
+                        }
+                        auto afterGroupIt = startIt + groupLength;
+                        if(afterGroupIt < to) {
+                            if(*afterGroupIt == '1'){
+                                groupCanFit = false;
+                            }
+                        }
+                        if(groupCanFit){
+                            std::string newResLine;
+                            newResLine.reserve(lineLength);
+                            for(auto j = 0; j < i; ++j) {
+                                auto currentCellValue = *(from + j);
+                                switch(currentCellValue){
+                                    case '0':
+                                    case '2':
+                                        newResLine.push_back('2');
+                                        break;
+                                    case '1':
+                                        newResLine.push_back('1');
+                                        break;
+                                    default:
+                                        assert(0);
+                                        break;
+                                }
+                            }
+                            for(auto j = 0; j < groupLength; ++j) {
+                                newResLine.push_back('1');
+                            }
+                            auto validateNumberOfNewLine = [](const std::string &line, int correct1CellsCount) -> bool {
+                                auto line1CellsCount = 0;
+                                for(auto &c : line) {
+                                    if(c == '1') {
+                                        ++line1CellsCount;
+                                    }
+                                }
+                                return line1CellsCount == correct1CellsCount;
+                            };
+                            auto correct1CellsCount = std::accumulate(numbers.begin(),
+                                                                      numbers.end(),
+                                                                      0);
+                            if(afterGroupIt < to){
+                                newResLine.push_back('2');
+                                decltype(numbers) numbersTail;
+                                numbersTail.reserve(numbers.size() - 1);
+                                std::copy(numbers.begin() + 1,
+                                          numbers.end(),
+                                          std::back_inserter(numbersTail));
+                                auto subFrom = afterGroupIt + 1;
+                                auto subLineLength = to - subFrom;
+                                if(subLineLength == 0 and !numbersTail.empty()){
+                                    return res;
+                                }
+                                auto subOptions = this->evaluateOptions(subFrom, to, numbersTail);
+                                if(subOptions.size()){
+                                    for(auto &subOption : subOptions) {
+                                        auto resLine = newResLine + subOption;
+                                        if(validateNumberOfNewLine(resLine, correct1CellsCount)){
+                                            res.push_back(std::move(resLine));
+                                        }
+                                    }
+                                }else{
+                                    if(newResLine.size() == lineLength){
+                                        if(validateNumberOfNewLine(newResLine, correct1CellsCount)){
+                                            res.push_back(std::move(newResLine));
+                                        }
+                                    }
                                 }
                             }else{
-                                if(newResLine.size() == lineLength){
+                                if(validateNumberOfNewLine(newResLine, correct1CellsCount)){
                                     res.push_back(std::move(newResLine));
                                 }
                             }
-                        }else{
-                            res.push_back(std::move(newResLine));
                         }
                     }
                 }
@@ -120,7 +157,20 @@ std::vector<std::string> Services::NonogramSolver::evaluateOptions(std::string::
         std::string newResLine;
         newResLine.reserve(lineLength);
         for(auto i = 0; i < lineLength; ++i) {
-            newResLine.push_back('2');
+            auto currentCellValue = *(from + i);
+            switch(currentCellValue){
+                case '0':
+                case '2':
+                    newResLine.push_back('2');
+                    break;
+                case '1':
+                    newResLine.push_back('1');
+                    break;
+                default:
+                    assert(0);
+                    break;
+            }
+//            newResLine.push_back('2');
         }
         res.push_back(std::move(newResLine));
     }

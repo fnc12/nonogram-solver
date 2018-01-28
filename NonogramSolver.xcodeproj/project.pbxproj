@@ -22,6 +22,7 @@
 		E9B18B511FFFFA1600ADAD2D /* NonogramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B18B501FFFFA1600ADAD2D /* NonogramView.swift */; };
 		E9B18B551FFFFB6200ADAD2D /* NonogramModelView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9B18B541FFFFB6200ADAD2D /* NonogramModelView.mm */; };
 		E9B18B572000096900ADAD2D /* train.json in Resources */ = {isa = PBXBuildFile; fileRef = E9B18B562000096800ADAD2D /* train.json */; };
+		E9B38DEA201E459000E3A6B8 /* camel.json in Resources */ = {isa = PBXBuildFile; fileRef = E9B38DE9201E459000E3A6B8 /* camel.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		E9B18B541FFFFB6200ADAD2D /* NonogramModelView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NonogramModelView.mm; sourceTree = "<group>"; };
 		E9B18B562000096800ADAD2D /* train.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = train.json; sourceTree = "<group>"; };
 		E9B18B5C20000ADA00ADAD2D /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
+		E9B38DE9201E459000E3A6B8 /* camel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = camel.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				E9B18B221FFFF50200ADAD2D /* Assets.xcassets */,
 				E9B18B562000096800ADAD2D /* train.json */,
 				E977AED820068E310026AA43 /* horse.json */,
+				E9B38DE9201E459000E3A6B8 /* camel.json */,
 				E9B18B241FFFF50200ADAD2D /* Main.storyboard */,
 				E9B18B271FFFF50200ADAD2D /* Info.plist */,
 				E9B18B281FFFF50200ADAD2D /* NonogramSolver.entitlements */,
@@ -368,6 +371,7 @@
 				E9B18B261FFFF50200ADAD2D /* Main.storyboard in Resources */,
 				E9B18B572000096900ADAD2D /* train.json in Resources */,
 				E977AED920068E310026AA43 /* horse.json in Resources */,
+				E9B38DEA201E459000E3A6B8 /* camel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

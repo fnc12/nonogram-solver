@@ -152,73 +152,204 @@ int main(int argc, const char * argv[]) {
                          options.end(),
                          "2111") != options.end());
     }
-    
-    /*{   // test [1 * 10] in [0 * 12]
-        auto options = solver.evaluateOptions(createUndefinedLine(12), {10});
-        assert(options.size() == 3);
+    {
+        //  line [1, 0, 0, 0] : [2]
+        auto line = createUndefinedLine(4);
+        line[0] = '1';
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {2});
+        assert(options.size() == 1);
         assert(std::find(options.begin(),
                          options.end(),
-                         "111111111100") != options.end());
-        assert(std::find(options.begin(),
-                         options.end(),
-                         "011111111110") != options.end());
-        assert(std::find(options.begin(),
-                         options.end(),
-                         "001111111111") != options.end());
-        assert(std::find(options.begin(),
-                         options.end(),
-                         "111111111111") == options.end());
-        
-        //  test evaluate clean
-        auto cleanLine = solver.evaluateClean(options);
-        decltype(cleanLine) expectedCleanLine = "221111111122";
-        assert(std::equal(expectedCleanLine.begin(),
-                          expectedCleanLine.end(),
-                          cleanLine.begin(),
-                          cleanLine.end()));
+                         "1122") != options.end());
     }
-    {   // test [1 * 9] in [0 * 12]
-        auto options = solver.evaluateOptions(createUndefinedLine(12), {9});
-        assert(options.size() == 4);
-        assert(std::find(options.begin(),
-                         options.end(),
-                         "111111111000") != options.end());
-        assert(std::find(options.begin(),
-                         options.end(),
-                         "011111111100") != options.end());
-        assert(std::find(options.begin(),
-                         options.end(),
-                         "001111111110") != options.end());
-        assert(std::find(options.begin(),
-                         options.end(),
-                         "000111111111") != options.end());
-        
-        //  test evaluate clean
-        auto cleanLine = solver.evaluateClean(options);
-        decltype(cleanLine) expectedCleanLine = "222111111222";
-        assert(std::equal(expectedCleanLine.begin(),
-                          expectedCleanLine.end(),
-                          cleanLine.begin(),
-                          cleanLine.end()));
-    }
-    {   //  test [1 * 8] in [0[10]_1_0]
-        auto options = solver.evaluateOptions("222222222212", {8});
+    {
+        //  line [0, 1, 0, 0] : [2]
+        auto line = createUndefinedLine(4);
+        line[1] = '1';
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {2});
         assert(options.size() == 2);
         assert(std::find(options.begin(),
                          options.end(),
-                         "000011111111") != options.end());
+                         "1122") != options.end());
         assert(std::find(options.begin(),
                          options.end(),
-                         "000111111110") != options.end());
-        
-        //  test evaluate clean
-        auto cleanLine = solver.evaluateClean(options);
-        decltype(cleanLine) expectedCleanLine = "222211111112";
-        assert(std::equal(expectedCleanLine.begin(),
-                          expectedCleanLine.end(),
-                          cleanLine.begin(),
-                          cleanLine.end()));
-    }*/
+                         "2112") != options.end());
+    }
+    {
+        //  line [0, 0, 1, 0] : [2]
+        auto line = createUndefinedLine(4);
+        line[2] = '1';
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {2});
+        assert(options.size() == 2);
+        assert(std::find(options.begin(),
+                         options.end(),
+                         "2112") != options.end());
+        assert(std::find(options.begin(),
+                         options.end(),
+                         "2211") != options.end());
+    }
+    {
+        //  line [0, 0, 0, 1] : [2]
+        auto line = createUndefinedLine(4);
+        line[3] = '1';
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {2});
+        assert(options.size() == 1);
+        assert(std::find(options.begin(),
+                         options.end(),
+                         "2211") != options.end());
+    }
+    {
+        //  line [1, 1, 0, 0] : [2]
+        auto line = createUndefinedLine(4);
+        line[0] = '1';
+        line[1] = '1';
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {2});
+        assert(options.size() == 1);
+        assert(std::find(options.begin(),
+                         options.end(),
+                         "1122") != options.end());
+    }
+    {
+        //  line [0, 1, 1, 0] : [2]
+        auto line = createUndefinedLine(4);
+        line[1] = '1';
+        line[2] = '1';
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {2});
+        assert(options.size() == 1);
+        assert(std::find(options.begin(),
+                         options.end(),
+                         "2112") != options.end());
+    }
+    {
+        //  line [0, 0, 1, 1] : [2]
+        auto line = createUndefinedLine(4);
+        line[2] = '1';
+        line[3] = '1';
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {2});
+        assert(options.size() == 1);
+        assert(std::find(options.begin(),
+                         options.end(),
+                         "2211") != options.end());
+    }
+    {
+        //  line 5 : [4]
+        auto line = createUndefinedLine(5);
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {4});
+        assert(options.size() == 2);
+        assert(std::find(options.begin(),
+                         options.end(),
+                         "11112") != options.end());
+        assert(std::find(options.begin(),
+                         options.end(),
+                         "21111") != options.end());
+        auto clean = solver.evaluateClean(options);
+        assert(clean == "01110");
+    }
+    {
+        //  line 5 : [2]
+        auto line = createUndefinedLine(5);
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {2});
+        assert(options.size() == 4);
+        auto clean = solver.evaluateClean(options);
+        assert(clean == "00000");
+    }
+    {
+        //  line 5 : [3]
+        auto line = createUndefinedLine(5);
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {3});
+        assert(options.size() == 3);
+        auto clean = solver.evaluateClean(options);
+        assert(clean == "00100");
+    }
+    {
+        //  line [1, 0, 0, 0, 0] : [2, 1]
+        std::string line = "10000";
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {2, 1});
+        assert(options.size() == 2);
+        assert(std::find(options.begin(),
+                         options.end(),
+                         "11212") != options.end());
+        assert(std::find(options.begin(),
+                         options.end(),
+                         "11221") != options.end());
+        auto clean = solver.evaluateClean(options);
+        assert(clean == "11200");
+    }
+    {
+        std::string line = "10110";
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {4});
+        assert(options.size() == 1);
+        assert(std::find(options.begin(),
+                         options.end(),
+                         "11112") != options.end());
+        auto clean = solver.evaluateClean(options);
+        assert(clean == "11112");
+    }
+    {
+        std::string line = "10000";
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {1, 1});
+        assert(options.size() == 3);
+        auto clean = solver.evaluateClean(options);
+        assert(clean == "12000");
+    }
+    {
+        std::string line = "01120";
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {2});
+        assert(options.size() == 1);
+        assert(std::find(options.begin(),
+                         options.end(),
+                         "21122") != options.end());
+        auto clean = solver.evaluateClean(options);
+        assert(clean == "21122");
+    }
+    {
+        std::string line = "02100";
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {3});
+        assert(options.size() == 1);
+        assert(std::find(options.begin(),
+                         options.end(),
+                         "22111") != options.end());
+        auto clean = solver.evaluateClean(options);
+        assert(clean == "22111");
+    }
+    {
+        std::string line = "12100";
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {1, 1});
+        assert(options.size() == 1);
+        assert(std::find(options.begin(),
+                         options.end(),
+                         "12122") != options.end());
+        auto clean = solver.evaluateClean(options);
+        assert(clean == "12122");
+    }
+    {
+        std::string line = "022000";
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {2});
+        assert(options.size() == 2);
+        auto clean = solver.evaluateClean(options);
+        assert(clean == "222010");
+    }
+    {
+        std::string line = "02200";
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {2});
+        assert(options.size() == 1);
+        auto clean = solver.evaluateClean(options);
+        assert(clean == "22211");
+    }
+    {
+        std::string line = "10000";
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {1});
+        assert(options.size() == 1);
+        auto clean = solver.evaluateClean(options);
+        assert(clean == "12222");
+    }
+    {
+        std::string line = "21110";
+        auto options = solver.evaluateOptions(line.begin(), line.end(), {4});
+        assert(options.size() == 1);
+        auto clean = solver.evaluateClean(options);
+        assert(clean == "21111");
+    }
     
     return 0;
 }
